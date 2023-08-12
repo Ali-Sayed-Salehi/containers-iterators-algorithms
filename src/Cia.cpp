@@ -37,3 +37,18 @@ WordsMap map_and_count_words_using_lambda(const WordsVector& words_vector) {
     std::for_each(words_vector.begin(), words_vector.end(), insert_into_map);
     return words_map;
 }
+
+
+
+WordsMap map_and_count_words_using_functor(const WordsVector& words_vector) {
+    WordCountFunctor word_count_functor{}; // must internally maintain occurrences of words
+    word_count_functor = std::for_each(words_vector.begin(),
+                                            words_vector.end(),
+                                            word_count_functor);
+    return word_count_functor.get_map();
+}
+
+void WordCountFunctor::operator()(const std::string& word) {
+    auto insertion_result = words_map.insert({word, 1});
+    if (!insertion_result.second) insertion_result.first->second += 1;
+}

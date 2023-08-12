@@ -30,7 +30,30 @@ WordsVector read_words_into_vector(const std::string& inFileName);
  * @return
  */
 WordsMap map_and_count_words_using_lambda(const WordsVector& words_vector);
-WordsMap map_and_count_words_using_functor(const WordsVector& wvec);
+
+/**
+ * a class that overloads the () operator to add words and their frequency to a map
+ */
+class WordCountFunctor {
+private:
+    WordsMap words_map{};
+public:
+    void operator()(const std::string& word);
+    WordsMap get_map() {
+        return words_map;
+    }
+};
+
+
+/**
+ * This function behaves the same as that of Task 2, except that it
+ * passes a function object of a functor named WordCountFunctor as
+ * the third argument in the call to the std::for_each algorithm.
+ * @param words_vector
+ * @return
+ */
+WordsMap map_and_count_words_using_functor(const WordsVector& words_vector);
+
 WordsVector remove_duplicates(const WordsVector& words_vector);
 bool is_palindrome(const std::string& phrase);
 size_t count_using_lambda(const std::vector<std::string>& vec, int n);

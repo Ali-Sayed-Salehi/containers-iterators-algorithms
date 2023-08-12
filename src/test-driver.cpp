@@ -94,7 +94,6 @@ void task_2_test_driver(const WordsVector& words_vector)
     cout << "All words in the map generated using lambda\n";
     print_word_map(word_map_using_lambda);
 }
-/*
 
 // Task 3
 void task_3_test_driver(const WordsVector& words_vector)
@@ -106,6 +105,7 @@ void task_3_test_driver(const WordsVector& words_vector)
     //cout << "All words in the map generated using functor\n";
     //print_word_map(word_map_using_functor);
 }
+/*
 
 // Task 4
 void validate_unique_words_vector(const WordsVector& word_vector)
@@ -209,8 +209,9 @@ int main()
     WordsVector words_vector = task_1_test_driver(infilename);
     task_2_test_driver(words_vector);
 
-/*
     task_3_test_driver(words_vector);
+
+/*
     task_4_test_driver(words_vector);
 
     task_5_test_driver();
