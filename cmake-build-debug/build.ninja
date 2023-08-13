@@ -63,6 +63,13 @@ build CMakeFiles/containers_iterators_algorithms.dir/src/test-driver.cpp.o: CXX_
   OBJECT_DIR = CMakeFiles/containers_iterators_algorithms.dir
   OBJECT_FILE_DIR = CMakeFiles/containers_iterators_algorithms.dir/src
 
+build CMakeFiles/containers_iterators_algorithms.dir/src/FibGen.cpp.o: CXX_COMPILER__containers_iterators_algorithms_Debug /Users/ali/repos/containers-iterators-algorithms/src/FibGen.cpp || cmake_object_order_depends_target_containers_iterators_algorithms
+  DEP_FILE = CMakeFiles/containers_iterators_algorithms.dir/src/FibGen.cpp.o.d
+  FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -mmacosx-version-min=13.1 -fcolor-diagnostics -std=gnu++20
+  INCLUDES = -I/Users/ali/repos/containers-iterators-algorithms/. -I/Users/ali/repos/containers-iterators-algorithms/inc -I/Users/ali/repos/containers-iterators-algorithms/src
+  OBJECT_DIR = CMakeFiles/containers_iterators_algorithms.dir
+  OBJECT_FILE_DIR = CMakeFiles/containers_iterators_algorithms.dir/src
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target containers_iterators_algorithms
@@ -71,7 +78,7 @@ build CMakeFiles/containers_iterators_algorithms.dir/src/test-driver.cpp.o: CXX_
 #############################################
 # Link the executable containers_iterators_algorithms
 
-build containers_iterators_algorithms: CXX_EXECUTABLE_LINKER__containers_iterators_algorithms_Debug CMakeFiles/containers_iterators_algorithms.dir/src/Cia.cpp.o CMakeFiles/containers_iterators_algorithms.dir/src/test-driver.cpp.o
+build containers_iterators_algorithms: CXX_EXECUTABLE_LINKER__containers_iterators_algorithms_Debug CMakeFiles/containers_iterators_algorithms.dir/src/Cia.cpp.o CMakeFiles/containers_iterators_algorithms.dir/src/test-driver.cpp.o CMakeFiles/containers_iterators_algorithms.dir/src/FibGen.cpp.o
   FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -mmacosx-version-min=13.1
   OBJECT_DIR = CMakeFiles/containers_iterators_algorithms.dir
   POST_BUILD = :

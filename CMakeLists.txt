@@ -10,4 +10,4 @@ include_directories(src)
 add_executable(containers_iterators_algorithms
         src/Cia.cpp
         inc/Cia.h
-        src/test-driver.cpp)
+        src/test-driver.cpp src/FibGen.cpp inc/FibGen.h)

@@ -8,6 +8,7 @@ using std::endl;
 using std::cin;
 
 #include "Cia.h"
+#include "FibGen.h"
 
 // function prototypes
 void validate_words_vector(const WordsVector& word_vector);
@@ -181,7 +182,6 @@ void task_8_test_driver(int n)
     assert(fibs[14] == 377);
     cout << endl;
 }
-/*
 
 // Task 9
 void task_9_test_driver(unsigned long n)
@@ -200,7 +200,6 @@ void task_9_test_driver(unsigned long n)
     }
     cout << '\n';
 }
-*/
 
 int main()
 {
@@ -213,10 +212,7 @@ int main()
     task_6_test_driver();
     task_7_test_driver();
     task_8_test_driver(15);
-/*
-
     task_9_test_driver(10);
-*/
 
     return 0;
 }
