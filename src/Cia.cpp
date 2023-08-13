@@ -180,3 +180,23 @@ void multisetUsingMyComparator(const std::vector<std::string>& vec) {
     std::copy(stringSet.begin(), stringSet.end(), out);
 }
 
+
+std::vector<int> generate_Fibonacci(int n) {
+    std::vector<int> fibonacci_sequence;
+
+    if (n <= 0) {
+        return fibonacci_sequence; // Return an empty vector for n <= 0
+    } else if (n == 1) {
+        fibonacci_sequence.push_back(0); // First term
+    } else {
+        fibonacci_sequence.push_back(0); // First term
+        fibonacci_sequence.push_back(1); // Second term
+
+        for (int i = 2; i < n; ++i) {
+            int nextTerm = fibonacci_sequence[i - 1] + fibonacci_sequence[i - 2];
+            fibonacci_sequence.push_back(nextTerm);
+        }
+    }
+
+    return fibonacci_sequence;
+}

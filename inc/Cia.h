@@ -142,5 +142,11 @@ void multisetUsingMyComparator(const std::vector<std::string>& vec);
  */
 void multisetUsingDefaultComparator(const std::vector<std::string>& vec);
 
+/**
+ * generates the first n terms of the Fibonacci sequence the stores them in a vector
+ * @param n
+ * @return
+ */
+std::vector<int> generate_Fibonacci(int n);
 
 #endif //CONTAINERS_ITERATORS_ALGORITHMS_CIA_H

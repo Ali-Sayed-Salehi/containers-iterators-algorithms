@@ -170,18 +170,18 @@ void task_7_test_driver()
     multisetUsingMyComparator(vec);
     cout << endl;
 }
-/*
 
 // Task 8
 void task_8_test_driver(int n)
 {
     cout << "\nTask 8: Fibonacci Sequence" << endl;
-    std::vector<int> fibs = getnerate_Fibonacci(n);
+    std::vector<int> fibs = generate_Fibonacci(n);
     std::copy(fibs.begin(), fibs.end(), std::ostream_iterator<int>(cout, " "));
     assert(fibs[9] == 34);
     assert(fibs[14] == 377);
     cout << endl;
 }
+/*
 
 // Task 9
 void task_9_test_driver(unsigned long n)
@@ -212,9 +212,9 @@ int main()
     task_5_test_driver();
     task_6_test_driver();
     task_7_test_driver();
+    task_8_test_driver(15);
 /*
 
-    task_8_test_driver(15);
     task_9_test_driver(10);
 */
 
