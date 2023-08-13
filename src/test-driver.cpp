@@ -139,7 +139,6 @@ void task_5_test_driver()
     assert(result_u_saw == false);
     cout << "the phrase \"" + str_u_saw + "\" is not a palindrome\n";
 }
-/*
 
 // Task 6
 void task_6_test_driver()
@@ -151,11 +150,11 @@ void task_6_test_driver()
             };
     assert(count_using_lambda(vecstr, 5) == 4);
     assert(count_using_Free_Func(vecstr, 5) == 4);
-    assert(count_using_Free_Func(vecstr, 5) == 4);
+    assert(count_using_functor(vecstr, 5) == 4);
 
     assert(count_using_lambda(vecstr, 3) == 3);
     assert(count_using_Free_Func(vecstr, 3) == 3);
-    assert(count_using_Free_Func(vecstr, 3) == 3);
+    assert(count_using_functor(vecstr, 3) == 3);
 
     cout << "Task 6 OK" << endl;
 }
@@ -171,6 +170,7 @@ void task_7_test_driver()
     multisetUsingMyComparator(vec);
     cout << endl;
 }
+/*
 
 // Task 8
 void task_8_test_driver(int n)
@@ -205,19 +205,15 @@ void task_9_test_driver(unsigned long n)
 int main()
 {
     std::string infilename{ R"(/Users/ali/repos/containers-iterators-algorithms/data/words.txt)" };
-
     WordsVector words_vector = task_1_test_driver(infilename);
     task_2_test_driver(words_vector);
-
     task_3_test_driver(words_vector);
-
     task_4_test_driver(words_vector);
-
     task_5_test_driver();
-/*
-
     task_6_test_driver();
     task_7_test_driver();
+/*
+
     task_8_test_driver(15);
     task_9_test_driver(10);
 */

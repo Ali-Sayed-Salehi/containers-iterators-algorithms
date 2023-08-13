@@ -4,6 +4,8 @@
 
 #include <fstream>
 #include <iostream>
+#include <iterator>
+#include <set>
 #include "Cia.h"
 
 using std::cout;
@@ -53,6 +55,10 @@ void WordCountFunctor::operator()(const std::string& word) {
     if (!insertion_result.second) insertion_result.first->second += 1;
 }
 
+WordsMap WordCountFunctor::get_map() {
+    return words_map;
+}
+
 WordsVector remove_duplicates(const WordsVector& words_vector) {
 
     // make a copy of the supplied words_vector
@@ -99,3 +105,78 @@ bool is_palindrome(const std::string& phrase) {
                              temp.rbegin());
     return result;
 }
+
+size_t count_using_lambda(const std::vector<std::string>& vec, int n) {
+    auto count = std::count_if(vec.begin(), vec.end(),
+                  [n] (const std::string& word) {
+                            if (word.length() == n) {
+                                return true;
+                            } else return false;
+                        }
+    );
+    return count;
+}
+
+bool char_count_free_func(const std::string& word, int n) {
+    if (word.length() == n) {
+        return true;
+    } else return false;
+}
+
+size_t count_using_Free_Func(const std::vector<std::string>& vec, int n) {
+    auto unaryFreeFunc = std::bind(char_count_free_func, std::placeholders::_1, n);
+    auto count = std::count_if(vec.begin(), vec.end(), unaryFreeFunc);
+    return count;
+}
+
+size_t count_using_functor(const std::vector<std::string>& vec, int n) {
+    CharCountEquals char_count_is_equal{n};
+    auto count = std::count_if(vec.begin(), vec.end(), char_count_is_equal);
+    return count;
+}
+
+bool CharCountEquals::operator()(const std::string &word) const {
+    if (word.length() == n) {
+        return true;
+    } else return false;
+}
+
+CharCountEquals::CharCountEquals(int n) : n(n) {}
+
+void multisetUsingDefaultComparator(const std::vector<std::string>& vec) {
+    std::multiset<std::string> stringSet{}; // an empty string set
+
+    // to print a sorted version of the supplied vector vec,
+    // we first copy vec to our stringSet and then print the stringSet.
+    // note: since std::multiset does not provide push_front or push_back members,
+    // we can’t use a front or back inserter when we copy vec to our empty stringSet,
+    // meaning that we must use a general inserter:
+    std::copy(vec.begin(), vec.end(),                      // source start and finish.
+              std::inserter(stringSet, stringSet.begin())); // destination start using
+
+    // a general inserter.
+    // create an ostream_iterator attached to cout, using a space " " as a separator
+    std::ostream_iterator<std::string> out(cout, " ");
+
+    // output the set elements to the cout
+    std::copy(stringSet.begin(), stringSet.end(), out);
+}
+
+bool string_comparator (const std::string& string1, const std::string& string2) {
+    if (string1.length() != string2.length()) {
+        return string1.length() < string2.length();
+    } else {
+        return string1 < string2;
+    }
+}
+
+
+void multisetUsingMyComparator(const std::vector<std::string>& vec) {
+    std::multiset<std::string, bool(*)(const std::string&, const std::string&)>
+            stringSet{string_comparator};
+    std::copy(vec.begin(), vec.end(),
+              std::inserter(stringSet, stringSet.begin()));
+    std::ostream_iterator<std::string> out(cout, " ");
+    std::copy(stringSet.begin(), stringSet.end(), out);
+}
+

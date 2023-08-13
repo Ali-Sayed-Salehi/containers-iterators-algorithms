@@ -39,9 +39,7 @@ private:
     WordsMap words_map{};
 public:
     void operator()(const std::string& word);
-    WordsMap get_map() {
-        return words_map;
-    }
+    WordsMap get_map();
 };
 
 
@@ -76,10 +74,72 @@ bool is_palindrome(const std::string& phrase);
  * @return
  */
 bool is_not_alphabetic(char ch);
+
+/**
+ * count and return the number of elements in vec that are of length n.
+ * @param vec
+ * @param n
+ * @return
+ */
 size_t count_using_lambda(const std::vector<std::string>& vec, int n);
+
+/**
+ * returns true if the passed string has n characters, and false otherwise.
+ * @param word
+ * @param n
+ * @return
+ */
+bool char_count_free_func(const std::string& word, int n);
+
+/**
+ * count and return the number of elements in vec that are of length n.
+ * @param vec
+ * @param n
+ * @return
+ */
 size_t count_using_Free_Func(const std::vector<std::string>& vec, int n);
-size_t count_using_Functor(const std::vector<std::string>& vec, int n);
+
+/**
+ * a class that overloads the () operator to add words and their frequency to a return true
+ * if the number of characters in a word is equal to n
+ */
+class CharCountEquals {
+private:
+    int n{};
+public:
+    explicit CharCountEquals(int n);
+    bool operator()(const std::string& word) const;
+};
+
+
+/**
+ * count and return the number of elements in vec that are of length n.
+ * @param vec
+ * @param n
+ * @return
+ */
+size_t count_using_functor(const std::vector<std::string>& vec, int n);
+
+/**
+ * a comparator function that compare strings in this way:
+ * strings are first sorted based on their length,
+ * with the strings in each group sorted lexicographically.
+ * @param string1
+ * @param string2
+ * @return
+ */
+bool string_comparator (const std::string& string1, const std::string& string2);
+
+/**
+ * prints the sorted version of a supplied vector of strings using a custom comparator
+ * @param vec
+ */
 void multisetUsingMyComparator(const std::vector<std::string>& vec);
+
+/**
+ * prints the sorted version of a supplied vector of strings using default comparator
+ * @param vec
+ */
 void multisetUsingDefaultComparator(const std::vector<std::string>& vec);
 
 
