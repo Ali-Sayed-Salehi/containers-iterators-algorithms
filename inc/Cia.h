@@ -54,8 +54,28 @@ public:
  */
 WordsMap map_and_count_words_using_functor(const WordsVector& words_vector);
 
+/**
+ * remove the duplicated words in the supplied words_vector
+ * @param words_vector
+ * @return
+ */
 WordsVector remove_duplicates(const WordsVector& words_vector);
+
+/**
+ * determines whether phrase string is a palindrome.
+ * The reading process ignores spaces, punctuation, and capitalization.
+ * @param phrase
+ * @return
+ */
 bool is_palindrome(const std::string& phrase);
+
+/**
+ * takes a char ch as its single parameter and
+ * determines whether ch is not an alphabetic character
+ * @param ch
+ * @return
+ */
+bool is_not_alphabetic(char ch);
 size_t count_using_lambda(const std::vector<std::string>& vec, int n);
 size_t count_using_Free_Func(const std::vector<std::string>& vec, int n);
 size_t count_using_Functor(const std::vector<std::string>& vec, int n);

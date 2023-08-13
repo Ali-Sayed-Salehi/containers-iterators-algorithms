@@ -52,3 +52,50 @@ void WordCountFunctor::operator()(const std::string& word) {
     auto insertion_result = words_map.insert({word, 1});
     if (!insertion_result.second) insertion_result.first->second += 1;
 }
+
+WordsVector remove_duplicates(const WordsVector& words_vector) {
+
+    // make a copy of the supplied words_vector
+    WordsVector words_vec{ words_vector };
+
+    // 1- use std::sort to sort words_vec alphabetically
+    //    so that we can locate the duplicate words in it.
+    std::sort(words_vec.begin(),
+              words_vec.end(),
+              [](const std::string& a, const std::string& b) {
+                        return a < b; // Compare strings alphabetically
+                    }
+    );
+
+    // 2- use std::unique to rearrange the words in the sorted words_vec
+    //    so that each word appears once in the front portion of words_vec.
+    //    store the returned iterator, which points to the element
+    //    immediately after all the unique elements in the front of words_vec.
+    auto new_end = std::unique(words_vec.begin(), words_vec.end());
+
+    // 3- use std::vector’s erase member function to erase the range of non-uniqu
+    //    words in words_vec, starting at the iterator stored in step 2 above
+    //    to the end of words_vec.
+    words_vec.erase(new_end,words_vec.end());
+    return words_vec;
+}
+
+bool is_not_alphabetic(char ch) {
+    return !((ch >= 'A' && ch <= 'Z') || (ch >= 'a' && ch <= 'z'));
+}
+
+bool is_palindrome(const std::string& phrase) {
+    std::string temp{};
+    std::remove_copy_if(phrase.begin(), phrase.end(),
+                        std::back_inserter(temp), is_not_alphabetic);
+
+    cout << temp << endl;
+    std::transform(temp.begin(), temp.end(), temp.begin(),
+                   [] (char ch) {return tolower(ch);});
+
+    std::string::iterator middleIterator = temp.begin() + temp.length() / 2;
+
+    bool result = std::equal(temp.begin(), middleIterator,
+                             temp.rbegin());
+    return result;
+}

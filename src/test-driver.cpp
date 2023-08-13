@@ -105,7 +105,6 @@ void task_3_test_driver(const WordsVector& words_vector)
     //cout << "All words in the map generated using functor\n";
     //print_word_map(word_map_using_functor);
 }
-/*
 
 // Task 4
 void validate_unique_words_vector(const WordsVector& word_vector)
@@ -140,6 +139,7 @@ void task_5_test_driver()
     assert(result_u_saw == false);
     cout << "the phrase \"" + str_u_saw + "\" is not a palindrome\n";
 }
+/*
 
 // Task 6
 void task_6_test_driver()
@@ -211,10 +211,11 @@ int main()
 
     task_3_test_driver(words_vector);
 
-/*
     task_4_test_driver(words_vector);
 
     task_5_test_driver();
+/*
+
     task_6_test_driver();
     task_7_test_driver();
     task_8_test_driver(15);
