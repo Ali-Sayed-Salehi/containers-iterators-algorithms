@@ -1,3 +1,0 @@
-/Users/ali/repos/containers-iterators-algorithms/cmake-build-debug/CMakeFiles/containers_iterators_algorithms.dir
-/Users/ali/repos/containers-iterators-algorithms/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/ali/repos/containers-iterators-algorithms/cmake-build-debug/CMakeFiles/rebuild_cache.dir
